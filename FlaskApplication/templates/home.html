@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="jumbotron">
+        <div class="">
+            <h3>Header</h3>
+        </div>
+    </div>
+    <div class="row">
+            <span class="col-sm-2">Demand ID</span>
+            <span class="col-sm-2">Release Item</span>
+            <span class="col-sm-4">Description</span>
+            <span class="col-sm-2">Task List</span>
+            <span class="col-sm-2">Timesheet</span>
+    </div>
+    <hr/>
+    <div class="row">
+            {% for value in homeData %}
+                {% for rec_key, rec_val in value.items() %}
+                    {% if rec_key == "Description" %}
+                        <span class="col-sm-4" >{{rec_val}}</span>
+                    {% else %}
+                        <span class="col-sm-2">{{rec_val}}</span>
+                    {% endif %}
+                {% endfor %}
+                <span class="col-sm-2"><a href="#">Task List</a></span>
+                <span class="col-sm-2"><a href="#">Timesheet</a></span>
+            {% endfor %}
+    </div>
+
+{% endblock %}
